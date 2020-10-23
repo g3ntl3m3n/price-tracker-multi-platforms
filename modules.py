@@ -24,11 +24,8 @@ class Hepsiburada():
         page = requests.get(urlhepsiburada, headers=headers)
 
         soup = BeautifulSoup(page.content, "html.parser")
-        # print(soup.prettify())
         title = soup.find(id="detail-container").get_text()
-        # print(title)
         price = soup.find(id="offering-price").get_text()
-        # print(price)
         c_price = price = float(price[0:4])
         # set your price
         if float(c_price) > 1.000:
@@ -66,10 +63,8 @@ class TrendYol():
         page = requests.get(urltrendyol, headers=headers)
 
         soup = BeautifulSoup(page.content, "html.parser")
-        # print(soup.prettify())
         title = soup.find("div", attrs={"class": "pr-in-cn"}).get_text()
         c_title = title[0:25]
-        # print(c_title)
         price = soup.find("span", attrs={"class": "prc-dsc"}).get_text()
         c_price = price[0:5]
 
